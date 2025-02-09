@@ -4,7 +4,12 @@ describe ('My Second Test', () => {
     it('Clicking "type" shows the right headings', () => {
         cy.visit('https://example.cypress.io')
         
-        cy.pause()
+        // cy.pause()
+
+        // Menunggu browser untuk ke load semua
+        // Bisa digunakan untuk setiap perintah
+        // Maksimal digunakan sampai 8000, rekomendasi digunakan maksimal 4000 aja
+        cy.wait(2000)
 
         cy.contains('type').click()
 

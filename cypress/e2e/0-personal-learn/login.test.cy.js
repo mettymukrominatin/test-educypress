@@ -18,22 +18,27 @@ describe('Working with inputs', () => {
         cy.get('input[name="user_password"]').type('password')
     })
 
-    it('Should try to login'), () => {
+    it('Should try to login', () => {
         cy.fixture('user').then(user => {
             const username = user.username
             const password = user.password
 
-            cy.get('#user_login').clear()
-            cy.get('#user_login').type(username)            
+            // Ketika menggunakan fitur commands
+            cy.login(username, password)
 
-            cy.get('input[name="user_password"]').clear()
-            cy.get('input[name="user_password"]').type(password)
+            // Ketika belum menggunakan fitur commands
+            // cy.get('#user_login').clear()
+            // cy.get('#user_login').type(username)            
+
+            // cy.get('input[name="user_password"]').clear()
+            // cy.get('input[name="user_password"]').type(password)
             
-            cy.get('input[name="submit"]').click()
+            // cy.get('input[name="submit"]').click()
 
             // Ketika menggunakan inspectnya class
-            cy.get('.alert-error').should('content.text','Login and/or password are wrong.')
+            // cy.get('.alert-error').contain('Login and/or password are wrong.')
+            cy.get('.alert-error').should('contain.text', 'Login and/or password are wrong.');
 
         })
-    }
+    })
 });

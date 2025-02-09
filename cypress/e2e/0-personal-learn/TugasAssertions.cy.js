@@ -4,7 +4,9 @@ describe ('My Third Test', () => {
     it('Clicking "type" shows the right headings', () => {
         cy.visit('https://example.cypress.io')
         
-        cy.pause()
+        // cy.pause()
+
+        cy.wait(2000)
 
         cy.contains('type').click()
 

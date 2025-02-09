@@ -22,3 +22,5 @@ describe('Working with inputs', () => {
         cy.get('input[name="user_remember_me"]').type('checkbox')
     })
 });
+
+// Pastikan untuk memvalidasi elemen terserah bertujuan untuk sudah masuk kah ke halaman itu

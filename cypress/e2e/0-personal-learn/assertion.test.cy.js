@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 
+// Tujuan Assertion -> untuk validasi/verifikasi
 describe('Browser action', () => {
     it('Should load correct url', () => {
         cy.visit('https://example.com/', {timeout: 10000})
