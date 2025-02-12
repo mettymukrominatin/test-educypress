@@ -1,5 +1,15 @@
-{
+[
+  {
     "username": "mettyken",
     "password": "123pass"
+  },
+  {
+    "username": "standard_user",
+    "password": "secret_sauce"
+  },
+  {
+    "first_name": "metty",
+    "last_name": "mukrominatin",
+    "postal_code": "63491"
   }
-  
+]
