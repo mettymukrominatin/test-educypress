@@ -28,11 +28,39 @@ Cypress.Commands.add('login', (username, password) => {
     cy.clearCookies()
     cy.clearAllLocalStorage()
 
+    // Hapus data username dan password jika terdapat value
     cy.get('#user_login').clear()
-    cy.get('#user_login').type(username)            
-
     cy.get('input[name="user_password"]').clear()
+
+    // Input password dan username
+    cy.get('#user_login').type(username)            
     cy.get('input[name="user_password"]').type(password)
-                
+      
+    // Klik login
     cy.get('input[name="submit"]').click()
-    })
+    cy.wait(2000)
+})
+
+Cypress.Commands.add('pay_bills', (amount, date, description) => {
+    cy.clearCookies()
+    cy.clearAllLocalStorage()
+
+    // Hapus data username dan password jika terdapat value
+    // cy.get('#sp_amount').clear()
+    // cy.get('#sp_date').clear()
+    // cy.get('#sp_description').clear()
+
+    // Input amount, date, description
+    cy.get('#sp_amount').type(amount)
+    cy.get('#sp_date').type(date)
+
+    // Klik date today
+    cy.get('.ui-datepicker-days-cell-over > .ui-state-default').click()
+    cy.wait(2000)
+
+    // Input description
+    cy.get('#sp_description').type(description)
+
+    // Klik pay
+    cy.get('#pay_saved_payees').click()
+})
