@@ -23,3 +23,20 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('login', (username, password) => {
+    cy.clearCookies()
+    cy.clearAllLocalStorage()
+
+    // Hapus data username dan password jika terdapat value
+    cy.get('#user_login').clear()
+    cy.get('input[name="user_password"]').clear()
+
+    // Input password dan username
+    cy.get('#user_login').type(username)            
+    cy.get('input[name="user_password"]').type(password)
+      
+    // Klik login
+    cy.get('input[name="submit"]').click()
+    cy.wait(2000)
+})
