@@ -1,6 +1,10 @@
 /// <reference types="cypress" />
 
 describe('Working with inputs', () => {
+    before(() => {
+        cy.clearCookies()
+        cy.clearAllLocalStorage()
+    })
     it('Visit the website', () => {
         
         cy.visit('http://zero.webappsecurity.com/login.html')

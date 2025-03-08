@@ -25,8 +25,10 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('login', (username, password) => {
-    cy.clearCookies()
-    cy.clearAllLocalStorage()
+    // before(() => {
+    //     cy.clearCookies()
+    //     cy.clearAllLocalStorage()
+    // })
 
     // Hapus data username dan password jika terdapat value
     cy.get('#user_login').clear()
